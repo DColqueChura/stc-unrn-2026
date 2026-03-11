@@ -57,10 +57,8 @@ Este repositorio incluye:
 ## ⚠️ Aviso
 Estos apuntes pueden contener errores o interpretaciones personales del contenido visto en clase.
 
-## 📅 Cursada
+## 📅 Cursada : Año académico **2026**.
 
-Año académico **2026**.
 
----
-
+\
 ✏️ Repositorio personal de estudio.
