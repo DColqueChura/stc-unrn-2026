@@ -36,7 +36,7 @@ ambas personas pueden hablar y escucharse simultáneamente.
 
 Fuente : CCNA oficial
 
-### c. Realice una comparación entre los modelos de referencia TCP/IP y OSI.
+### C. Realice una comparación entre los modelos de referencia TCP/IP y OSI.
 
 | Capa | OSI | TCP/IP |
 |------|-------------|-------------|
@@ -54,7 +54,7 @@ Por ejemplo, el modelo OSI tiene capas específicas para la presentación y sesi
 
 **Curiosidad**: el modelo OSI fue desarrollado por la Organización Internacional de Normalización (ISO) en la década de 1980, mientras que el modelo TCP/IP fue desarrollado por el Departamento de Defensa de los Estados Unidos en la década de 1970.
 
-### d. ¿A qué nivel del modelo OSI funciona cada dispositivo? Describa brevemente el principio de operación de cada uno.
+### D. ¿A qué nivel del modelo OSI funciona cada dispositivo? Describa brevemente el principio de operación de cada uno.
 - Router: Funciona a nivel de la capa 3 (Red).
 - Hub: Funciona a nivel de la capa 1 (Física).
 - Switch: Funciona a nivel de la capa 2 (Enlace de datos).
@@ -81,3 +81,17 @@ Definiciones: \
 `UDP (Protocolo de Datagramas de Usuario)` es un protocolo de comunicación no orientado a la conexión que permite la transmisión de datos sin garantizar su entrega. No proporciona mecanismos de control de flujo ni corrección de errores, lo que lo hace más rápido pero menos confiable que TCP.
 
 Fuente: CCNA oficial
+
+## Consigna 2: Modulación digital
+### A. ¿Qué diferencias existen entre una transmisión en banda base y una pasabanda? ¿Cómo se obtiene una a partir de la otra?
+### B. Describa en forma conceptual cómo se determina el ancho de banda de transmisión en un esquema basado en:
+- BASK
+- BPSK
+- BFSK
+### C. ¿Qué efectos tienen los siguientes fenómenos sobre un diagrama de constelación?
+- AWGN
+- Errores de fase
+- Atenuación del canal
+### D. Compare las constelaciones de 16-QAM y 16-APSK.
+### E. Compare los conceptos de operación del filtro adaptado y el receptor de correlación.
+### F. De una breve descripción del principio de funcionamiento de DSSS y FHSS. Mencione las principales ventajas y desventajas de los sistemas basados en espectro esparcido.
