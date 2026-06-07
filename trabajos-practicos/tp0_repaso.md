@@ -10,7 +10,7 @@
 |------|-------------|-------------|-------------|
 | Unicast / Unidifusión | Transmisiones uno-a-uno | TCP (Protocolo de control de transmisión) o UDP | Un usuario solicita información de un servidor, sitio web u otro usuario, y la otra parte la envía después de establecer una conexión única. |
 | Multicast / Multidifusión | Similar al broadcast, sólo que en multicast se envía a un grupo específico. | UDP (Protocolo de datagramas de usuario) | En sistemas de video vigilancia. Si hay 4 operadores, cada uno en su computadora, viendo el video de la misma cámara, Si se configura a la cámara con Multicast solo envías un flujo a los 4 operadores, los switches ya se encargan de replicar el flujo a los puertos que lo requieren (no a todos). |
-| Broadcast / Difusión | Difunde la información de forma simultánea a todos los nodos de red.  | UDP | Un canal de radio o televisión. |
+| Broadcast / Difusión | Difunde la información de forma simultánea a todos los nodos de red.  | UDP | La resolución de direcciones con ARP (Address Resolution Protocol) Y La asignación de IPs por DHCP, donde un paquete se envía obligatoriamente a todos los hosts de la LAN (dirección MAC FF:FF:FF:FF:FF:FF) |
 
 Algo en común: **Todas se utilizan para reenviar paquetes en una red.** 
 
@@ -63,7 +63,7 @@ Por ejemplo, el modelo OSI tiene capas específicas para la presentación y sesi
 
 `Hub`: Es un dispositivo de red que se utiliza para conectar varios dispositivos en una red local (LAN). Funciona a nivel de la capa física (capa 1) del modelo OSI. Un hub simplemente recibe los datos de un dispositivo y los transmite a todos los demás dispositivos conectados al hub, sin realizar ningún tipo de filtrado o direccionamiento.
 
-`Switch`: Es un dispositivo de red que también se utiliza para conectar varios dispositivos en una red local (LAN). Funciona a nivel de la capa de enlace de datos (capa 2) del modelo OSI. A diferencia de un hub, un switch es capaz de filtrar y dirigir los datos solo al dispositivo específico al que están destinados, utilizando direcciones MAC para identificar los dispositivos en la red. Esto mejora la eficiencia y reduce las colisiones en la red.
+`Switch`: Es un dispositivo de red que también se utiliza para conectar varios dispositivos en una red local (LAN). Funciona a nivel de la capa de enlace de datos (capa 2) del modelo OSI. A diferencia de un hub, un switch es capaz de filtrar y dirigir los datos solo al dispositivo específico al que están destinados, utilizando "Tabla MAC" o "CAM Table" para identificar los dispositivos en la red (el switch aprende dinámicamente qué dirección MAC está en cada puerto físico leyendo las tramas entrantes). Esto mejora la eficiencia y reduce las colisiones en la red.
 
 ### e. Mencione las principales diferencias entre TCP y UDP.
 | Característica | TCP (Protocolo de Control de Transmisión) | UDP (Protocolo de Datagramas de Usuario) |
@@ -84,10 +84,26 @@ Fuente: CCNA oficial
 
 ## Consigna 2: Modulación digital
 ### A. ¿Qué diferencias existen entre una transmisión en banda base y una pasabanda? ¿Cómo se obtiene una a partir de la otra?
+
+`Banda Base (Baseband)`: Es la señal digital o analógica tal cual sale de la fuente, sin sufrir ninguna modulación en frecuencia. Su espectro de frecuencias comienza en o muy cerca de los 0 Hz (DC).
+
+    Ejemplo: El tren de pulsos binarios que sale de un microcontrolador, o la señal de audio de un micrófono. No se puede propagar eficientemente por el aire mediante antenas porque requeriría antenas del tamaño de kilómetros.
+
+`Pasabanda (Passband / Banda de Paso)`: Pasabanda (Passband / Banda de Paso): Es una señal que ha sido desplazada en frecuencia hacia una banda superior, centrada alrededor de una frecuencia portadora (fc). Su espectro no toca el cero. Esto permite sintonizar diferentes canales en un mismo medio físico (FDM) y transmitir de forma inalámbrica de manera eficiente.
+
+`¿Cómo se obtiene una a partir de la otra?`
+- **De Banda Base a Pasabanda (Modulación)**: Se multiplica (mezcla) la señal de banda base (moduladora) por una señal senoidal de alta frecuencia (portadora). En sistemas digitales, los bits modifican la amplitud (ASK), fase (PSK) o frecuencia (FSK) de esa portadora.
+
+- **De Pasabanda a Banda Base (Demodulación)**: En el receptor se realiza el proceso inverso (generalmente multiplicando de nuevo por la frecuencia portadora local y aplicando un filtro pasa-bajos) para recuperar la señal original de datos en banda base.
+
 ### B. Describa en forma conceptual cómo se determina el ancho de banda de transmisión en un esquema basado en:
 - BASK
 - BPSK
 - BFSK
+
+`BASK`
+`BPSK`
+`BFSK`
 ### C. ¿Qué efectos tienen los siguientes fenómenos sobre un diagrama de constelación?
 - AWGN
 - Errores de fase
