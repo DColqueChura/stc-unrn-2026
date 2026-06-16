@@ -113,7 +113,10 @@ Matemáticamente: $R_s = R_b$ (*)
 
 $M = 2 \quad \text{(Símbolos posibles: Binario)}$ \
 $k = log_2(M) \implies k = log_2(2) \implies k = 1 \text{ bit/símbolo}$ \
-Ahora, la relación entre la Tasa de Símbolos ($R_s$) y la Tasa de Bits ($R_b$) se define formalmente como:$$R_b = k \cdot R_s$$Como ya demostramos que $k = 1$:$$R_b = 1 \cdot R_s \implies R_b = R_s$$
+Ahora, la relación entre la Tasa de Símbolos ($R_s$) y la Tasa de Bits ($R_b$) se define formalmente como: \
+$R_b = k \cdot R_s$ \
+Como ya demostramos que $k = 1$: \
+$R_b = 1 \cdot R_s \implies R_b = R_s$
 
 `¿Cómo se relaciona esto con el Ancho de Banda (BW)?` \
 El ancho de banda es, literalmente, el "ancho de la carretera" que necesitas para que tus símbolos viajen sin chocarse ni deformarse. \
