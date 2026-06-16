@@ -180,3 +180,12 @@ Las técnicas de espectro esparcido buscan transmitir una señal ocupando un anc
 `Desventajas`
 - Requiere un **ancho de banda masivo**.
 - Sistemas de **sincronismo extremadamente complejos** entre $T_x y R_x$ para alinearse con los códigos o los saltos de frecuencia.
+
+## Consigna 3: Mecanismos determinísticos de acceso al medio
+### A. ¿A qué se debe la necesidad de implementar sistemas robustos de sincronismo en aplicaciones que utilizan TDMA? ¿Cómo se compara con FDMA?
+
+
+
+### B. ¿Cómo se compara la flexibilidad en la capacidad de asignación de acceso al medio en TDMA con respecto a FDMA?
+### C. Dé una breve explicación de cómo CDMA se vale de las técnicas de espectro esparcido para permitir brindar el acceso múltiple.
+### D. ¿Cuáles son las principales desventajas de los mecanismos determinísticos de acceso al medio?
