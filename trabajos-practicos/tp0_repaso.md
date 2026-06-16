@@ -55,17 +55,18 @@ Por ejemplo, el modelo OSI tiene capas específicas para la presentación y sesi
 **Curiosidad**: el modelo OSI fue desarrollado por la Organización Internacional de Normalización (ISO) en la década de 1980, mientras que el modelo TCP/IP fue desarrollado por el Departamento de Defensa de los Estados Unidos en la década de 1970.
 
 ### D. ¿A qué nivel del modelo OSI funciona cada dispositivo? Describa brevemente el principio de operación de cada uno.
-- Router: Funciona a nivel de la capa 3 (Red).
 - Hub: Funciona a nivel de la capa 1 (Física).
 - Switch: Funciona a nivel de la capa 2 (Enlace de datos).
+- Router: Funciona a nivel de la capa 3 (Red).
 
-`Router`: Es un dispositivo que se encarga de dirigir el tráfico de datos entre diferentes redes. Utiliza tablas de enrutamiento para determinar la mejor ruta para enviar los paquetes de datos a su destino. Opera en la capa de red (capa 3) del modelo OSI, lo que le permite manejar direcciones IP y tomar decisiones basadas en la información de la red.
 
 `Hub`: Es un dispositivo de red(*) que se utiliza para conectar varios dispositivos en una red local (LAN). Funciona a nivel de la capa física (capa 1) del modelo OSI. Un hub simplemente recibe los datos de un dispositivo y los transmite a todos los demás dispositivos conectados al hub, sin realizar ningún tipo de filtrado o direccionamiento.
 
 `Switch`: Es un dispositivo de red que también se utiliza para conectar varios dispositivos en una red local (LAN). Funciona a nivel de la capa de enlace de datos (capa 2) del modelo OSI. A diferencia de un hub, un switch es capaz de filtrar y dirigir los datos solo al dispositivo específico al que están destinados, utilizando "Tabla MAC" o "CAM Table" para identificar los dispositivos en la red (el switch aprende dinámicamente qué dirección MAC está en cada puerto físico leyendo las tramas entrantes). Esto mejora la eficiencia y reduce las colisiones en la red.
 
-(*) El hub se considera dispositivo de red porque hace posible la infraestructura física de la red, actuando como el punto central de unión.
+`Router`: Es un dispositivo que se encarga de dirigir el tráfico de datos entre diferentes redes. Utiliza tablas de enrutamiento para determinar la mejor ruta para enviar los paquetes de datos a su destino. Opera en la capa de red (capa 3) del modelo OSI, lo que le permite manejar direcciones IP y tomar decisiones basadas en la información de la red.
+
+(*) El hub se considera dispositivo de red porque hace posible la **infraestructura física de la red**, actuando como el punto central de unión.
 
 ### e. Mencione las principales diferencias entre TCP y UDP.
 | Característica | TCP (Protocolo de Control de Transmisión) | UDP (Protocolo de Datagramas de Usuario) |
