@@ -164,7 +164,7 @@ Ambos son receptores óptimos en presencia de ruido AWGN; matemáticamente se de
 `Filtro Adaptado (Matched Filter)`: No necesita generar una réplica de la señal en tiempo real; es un filtro físico (un circuito con componentes) cuya respuesta al impulso $h(t)$ es una versión invertida en el tiempo y desplazada del pulso de señal esperado $s(t)$, es decir, $h(t) = s(T - t)$. 
 - **Operación**: La señal recibida pasa a través del filtro (operación de convolución). El filtro está diseñado para que, justo en el instante de muestreo $t = T$, la salida alcance su valor máximo de Relación Señal a Ruido (SNR).
 
-### F. De una breve descripción del principio de funcionamiento de DSSS y FHSS. Mencione las principales ventajas y desventajas de los sistemas basados en espectro esparcido.
+### F. Dé una breve descripción del principio de funcionamiento de DSSS y FHSS. Mencione las principales ventajas y desventajas de los sistemas basados en espectro esparcido.
 
 Las técnicas de espectro esparcido buscan transmitir una señal ocupando un ancho de banda muchísimo mayor que el mínimo necesario manteniendo la misma potencia de señal, así volviéndola inmune a interferencias.
 
@@ -184,8 +184,30 @@ Las técnicas de espectro esparcido buscan transmitir una señal ocupando un anc
 ## Consigna 3: Mecanismos determinísticos de acceso al medio
 ### A. ¿A qué se debe la necesidad de implementar sistemas robustos de sincronismo en aplicaciones que utilizan TDMA? ¿Cómo se compara con FDMA?
 
+En **TDMA (Time Division Multiple Access)**, todo el ancho de banda del canal está disponible para todos los usuarios, pero **solo durante un intervalo de tiempo específico (slot o ranura temporal)**.
 
+`Necesidad de Sincronismo en TDMA`: Como el acceso al medio se divide en ciclos con intervalos de tiempo específicos para cada nodo, el sincronismo es vital para que un host no empiece a transmitir antes de que termine el anterior. Si los relojes del transmisor y el receptor no están perfectamente alineados, las transmisiones se solaparían, causando colisiones y pérdida de datos.
+
+La necesidad de un sincronismo extremadamente robusto se debe a los siguientes factores críticos:
+
+- `Evitar colisiones (Solapamiento Temporal)`: Si los relojes de las diferentes terminales (por ejemplo, satélites, estaciones terrestres o teléfonos) no están perfectamente sincronizados, una terminal podría empezar a transmitir antes de que la anterior haya terminado. Esto destruiría la información de ambas transmisiones.
+
+- `Compensación del retardo de propagación (Timing Advance)`: Las señales viajan a la velocidad de la luz, pero las distancias entre los usuarios y el receptor (la estación base o el satélite) varían. Un usuario que está más lejos tarda más en hacer llegar su señal. El sistema necesita sincronizar a los usuarios no solo en base a su "reloj local", sino calculando un desfase temporal para que todas las señales lleguen exactamente en su ranura correspondiente.
+
+- `Eficiencia del canal (Uso de Guard Bands)`: Para absorber pequeñas desviaciones, se introducen tiempos de guarda (Guard Times) entre slots. Si el sincronismo es malo, estos tiempos de guarda deben ser muy grandes, lo que desperdicia ancho de banda. Un sincronismo robusto permite tiempos de guarda mínimos y máxima eficiencia.
+
+`Comparación con FDMA`: En FDMA, la separación es por frecuencia, no por tiempo. Cada usuario tiene su propio canal dedicado continuamente. Por lo tanto, FDMA es mucho más relajado en cuanto a sincronismo temporal de ranuras, ya que los nodos **no comparten el mismo instante de tiempo en la misma frecuencia**.
 
 ### B. ¿Cómo se compara la flexibilidad en la capacidad de asignación de acceso al medio en TDMA con respecto a FDMA?
+`TDMA (es más flexible)`: La asignación de capacidad se maneja en el dominio del tiempo. Si un usuario necesita más ancho de banda (por ejemplo, para transmitir un archivo pesado) y otro usuario está inactivo, el controlador de la red puede asignarle dinámicamente múltiples time slots (ranuras de tiempo) al primer usuario dentro del mismo marco (frame). Esto permite adaptar la capacidad bajo demanda de forma rápida y digital.
+
+`FDMA (es más rígido)`: La asignación de un canal de frecuencia suele ser estática. Modificar el ancho de banda asignado a un usuario implica cambiar el filtrado de hardware o reasignar una portadora de diferente tamaño para no interferir con los canales adyacentes, lo cual es mucho más rígido y complejo de gestionar dinámicamente en tiempo real.
+
 ### C. Dé una breve explicación de cómo CDMA se vale de las técnicas de espectro esparcido para permitir brindar el acceso múltiple.
+En **CDMA (Acceso Múltiple por División de Código)**, a diferencia de TDMA o FDMA, todos los usuarios transmiten al mismo tiempo y en la misma frecuencia. Para evitar que las señales se destruyan entre sí, CDMA se apoya en la técnica de DSSS (Direct Sequence Spread Spectrum).
+
+- `Multiplicación por un Código Único (Esparcimiento)`: A cada canal/usuario se le asigna un código digital único y de alta velocidad llamado código de pseudo-ruido (PN) o chip code. Al multiplicar los datos por este código rápido, la señal resultante se "estira" o desparrama a lo largo de un ancho de banda mucho más grande que el original.
+- `Transmisión por debajo del nivel de ruido`:
+- `Recuperación selectiva (Desesparcimiento)`:
+
 ### D. ¿Cuáles son las principales desventajas de los mecanismos determinísticos de acceso al medio?
