@@ -207,7 +207,20 @@ La necesidad de un sincronismo extremadamente robusto se debe a los siguientes f
 En **CDMA (Acceso Múltiple por División de Código)**, a diferencia de TDMA o FDMA, todos los usuarios transmiten al mismo tiempo y en la misma frecuencia. Para evitar que las señales se destruyan entre sí, CDMA se apoya en la técnica de DSSS (Direct Sequence Spread Spectrum).
 
 - `Multiplicación por un Código Único (Esparcimiento)`: A cada canal/usuario se le asigna un código digital único y de alta velocidad llamado código de pseudo-ruido (PN) o chip code. Al multiplicar los datos por este código rápido, la señal resultante se "estira" o desparrama a lo largo de un ancho de banda mucho más grande que el original.
-- `Transmisión por debajo del nivel de ruido`:
-- `Recuperación selectiva (Desesparcimiento)`:
+- `Transmisión por debajo del nivel de ruido`: la potencia de la señal ahora se distribuye en un ancho de banda muy grande, la densidad espectral de potencia disminuye tanto que la señal del usuario se vuelve prácticamente indistinguible del ruido de fondo para cualquier receptor que no tenga su código.
+- `Recuperación selectiva (Desesparcimiento)`: El receptor recibe la suma de las señales de todos los usuarios transmitiendo simultáneamente en la misma frecuencia. Para extraer los datos del Usuario A, el receptor multiplica la señal total combinada por el mismo código ortogonal del Usuario A. El usuario logra descifrar la señal con la potencia original y bits de datos limpios, en cambio, para los demás usuarios como tienen códigos ortogonales al Usuario A, matemáticamente da cero, y solo ven la señal como ruido de fondo de banda ancha.
 
 ### D. ¿Cuáles son las principales desventajas de los mecanismos determinísticos de acceso al medio?
+
+Según lo que vimos en las diapositivas, la desventaja principal es la ineficiencia ante tráfico ráfaga:
+- Desperdicio de recursos: Durante los momentos en que un nodo no tiene datos para enviar, su capacidad asignada (ya sea su tiempo en TDMA, su frecuencia en FDMA o su código en CDMA) se desperdicia por completo, ya que no puede ser aprovechada por otros nodos en ese esquema estático.  
+- Complejidad: Requieren una coordinación centralizada o un sincronismo muy preciso para funcionar correctamente. 
+
+## Consigna 4: Transmisión confiable
+
+### A. ¿En qué escenarios de uso (y por qué) considera que resulta beneficioso utilizar métodos de FEC frente a sistemas basados en retransmisiones?
+
+El FEC (Forward Error Correction) envía redundancia para que el receptor corrija errores por sí mismo, sin pedir que se reenvíe el paquete. Es mejor que las retransmisiones (ARQ) en:  
+- Sistemas con elevado delay (como Satélites): Si esperás a que llegue un error, avisar al emisor y que este reenvíe, la latencia sería inaceptable.  
+- Sistemas de Streaming/Tiempo Real: No hay tiempo para retransmitir; si un frame de video llega mal, es mejor intentar repararlo con los bits de paridad extra que pedirlo de nuevo y que el video se corte.  
+- Canales Broadcast (Uno a muchos): Si tenés 1000 receptores y a 1 le llega mal el dato, no podés frenar la transmisión para todos solo para retransmitirle a ese usuario. 
